@@ -6,4 +6,4 @@ COPY Gemfile.lock ./
 RUN bundle install
 COPY . /extended-browser-history
 
-CMD ["bundle", "exec", "ruby", "app.rb"]
+

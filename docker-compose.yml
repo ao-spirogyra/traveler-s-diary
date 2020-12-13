@@ -2,8 +2,9 @@ version: '3'
 services:
   app:
     build: .
+    command: bundle exec unicorn -c /extended-browser-history/config/unicorn.rb
     volumes:
       - .:/extended-browser-history
     ports:
-      - "4567:4567"
+      - "8080:8080"
 
