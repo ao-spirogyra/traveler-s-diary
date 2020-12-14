@@ -1,9 +1,7 @@
-FROM ruby:2.7.2
-RUN mkdir /extended-browser-history
+FROM node:12
 WORKDIR /extended-browser-history
-COPY Gemfile ./
-COPY Gemfile.lock ./
-RUN bundle install
+COPY package*.json ./
+RUN npm install
 COPY . /extended-browser-history
+EXPOSE 3000
 
-CMD ["bundle", "exec", "ruby", "app.rb"]
