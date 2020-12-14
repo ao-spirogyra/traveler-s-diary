@@ -3,7 +3,7 @@ services:
   app:
     build: .
     volumes:
-      - .:/docker-study
+      - .:/extended-browser-history
     ports:
       - "4567:4567"
 
