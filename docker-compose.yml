@@ -2,8 +2,9 @@ version: '3'
 services:
   app:
     build: .
+    command: npm run ts-node src/app.ts
     volumes:
       - .:/extended-browser-history
     ports:
-      - "4567:4567"
+      - "3000:3000"
 
