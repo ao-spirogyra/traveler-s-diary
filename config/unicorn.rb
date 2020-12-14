@@ -6,5 +6,8 @@ working_directory app_dir
 
 pid "#{app_dir}/tmp/pids/unicorn.pid"
 
-listen 8080, tcp_nopush: true
+listen "#{app_dir}/tmp/sockets/unicorn.sock"
 timeout 30
+
+
+stdout_path "#{app_dir}/log/unicorn.stdout.log"

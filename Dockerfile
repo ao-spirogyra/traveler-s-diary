@@ -6,4 +6,5 @@ COPY Gemfile.lock ./
 RUN bundle install
 COPY . /extended-browser-history
 
+EXPOSE 3000
 

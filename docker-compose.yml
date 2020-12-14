@@ -5,13 +5,15 @@ services:
     command: bundle exec unicorn -c /extended-browser-history/config/unicorn.rb
     volumes:
       - .:/extended-browser-history
-      - tmp-data:/extended-browser-history/tmp/sockets
     ports:
-      - "8080:8080"
+      - "3000:3000"
   nginx:
-    build: ./nginx
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
     command: nginx -g "daemon off;"
-    volumes: 
-      - tmp-data:/extended-browser-history/tmp/sockets
-volumes: 
-  tmp-data:
+    ports: 
+      - "80:80"
+    depends_on: 
+      - app
+    
