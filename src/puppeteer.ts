@@ -8,6 +8,6 @@ export const takeSnapshots = async (url) => {
     height: 1080
   });
   await page.goto(url);
-  await page.screenshot({path: 'puppeteer/test.png', fullPage:true});
+  await page.screenshot({path: 'puppeteer/tmp.png', fullPage:true});
   await browser.close();
 }
