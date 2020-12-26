@@ -2,7 +2,7 @@
   "name": "extended-browser-history",
   "version": "1.0.0",
   "description": "",
-  "main": "app.ts",
+  "main": "App.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts-node": "ts-node",
@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "form-data": "^3.0.0",
+    "node-fetch": "^2.6.1",
     "puppeteer": "^5.5.0"
   }
 }
