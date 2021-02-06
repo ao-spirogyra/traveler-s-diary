@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/puppeteer', (req, res) => {
+app.post('/puppeteer', (req, res) => {
   req 
   res.send('Hello puppeteer!')
   takeSnapshots(req.query.url)
