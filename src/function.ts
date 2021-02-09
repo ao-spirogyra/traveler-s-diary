@@ -17,7 +17,7 @@ export const takeSnapshots = async (url) => {
 
 
   const formData = new FormData();
-  formData.append('access_token', '5d80413d3c0895f5acb9eb162ca2341e4f496e2bd51bb941e160989fdf468f22');
+  formData.append('access_token', '5793d9ca2e6d55aeab40dd39953ec9fd28dd90bddf5f5dc28a33b6e98f8737ad');
   formData.append('referer_url', url);
   formData.append('desc', '#extended-browser-history');
 
