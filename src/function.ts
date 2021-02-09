@@ -11,9 +11,14 @@ export const takeSnapshots = async (url) => {
     width: 1920,
     height: 1080
   });
-  await page.goto(url);
-  await page.screenshot({path: 'puppeteer/tmp.png', fullPage:true});
-  await browser.close();
+  try {
+    await page.goto(url);
+    await page.screenshot({path: 'puppeteer/tmp.png', fullPage:true});
+    await browser.close();
+  } catch {
+    return
+  }
+  
 
 
   const formData = new FormData();
