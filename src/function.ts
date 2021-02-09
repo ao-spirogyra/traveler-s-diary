@@ -31,11 +31,8 @@ export const takeSnapshots = async (url) => {
     if (response.status !== 200) {
       console.log('there was a problem. Status Code: ' + response.status)
     }
-    console.log(response);
   },(e) => {
     console.log('Fetch error'+ e);
   });
-  fs.unlinkSync('puppeteer/tmp.png');
-  console.log('it\'s all done');
 }
 
