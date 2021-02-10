@@ -41,3 +41,31 @@ export const takeSnapshots = async (url) => {
   });
 }
 
+let cache: string
+export const getAccessToken = async (query: string): Promise<String> => {
+  const formData = new FormData();
+  const code = query
+  const client_id = 'f25d2754cabdca35725e0bc8611f5d609fbbf334198c68476c6edda718ec6e12';
+  const client_secret = '';
+  const redirect_uri = 'http://localhost:3000/token';
+  const grant_type = 'authorization_code';
+  formData.append('code', code)
+  formData.append('client_id', client_id)
+  formData.append('client_secret', client_secret)
+  formData.append('redirect_uri', redirect_uri)
+  formData.append('grant_type', grant_type)
+  await fetch('https://api.gyazo.com/oauth/token', {
+    method: 'POST',
+    body: formData
+  }).then( async (response) => {
+    if (response.status === 200) {
+      const res = await response.json()
+      if (res) {
+        cache = res['access_token']
+      }
+      
+    }
+    
+  })
+  return cache
+}
