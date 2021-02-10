@@ -39,6 +39,7 @@ export const takeSnapshots = async (url,accessToken) => {
   },(e) => {
     console.log('Fetch error'+ e);
   });
+  console.log('it\'s all done')
 }
 
 let cache: string
