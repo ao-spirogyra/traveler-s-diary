@@ -26,6 +26,6 @@ app.post('/puppeteer', (req, res) => {
   takeSnapshots(req.query.url, req.body.accessToken)
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
