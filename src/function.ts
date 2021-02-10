@@ -3,7 +3,7 @@ import FormData from 'form-data';
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-export const takeSnapshots = async (url) => {
+export const takeSnapshots = async (url,accessToken) => {
   const browser = await puppeteer.launch({headless: true});
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
@@ -22,7 +22,7 @@ export const takeSnapshots = async (url) => {
 
 
   const formData = new FormData();
-  formData.append('access_token', '5d80413d3c0895f5acb9eb162ca2341e4f496e2bd51bb941e160989fdf468f22');
+  formData.append('access_token', accessToken);
   formData.append('referer_url', url);
   formData.append('desc', '#extended-browser-history');
 
@@ -41,3 +41,31 @@ export const takeSnapshots = async (url) => {
   });
 }
 
+let cache: string
+export const getAccessToken = async (query: string): Promise<String> => {
+  const formData = new FormData();
+  const code = query
+  const client_id = 'f25d2754cabdca35725e0bc8611f5d609fbbf334198c68476c6edda718ec6e12';
+  const client_secret: string = fs.readFileSync('client_secret', 'utf-8');
+  const redirect_uri = 'http://localhost:3000/token';
+  const grant_type = 'authorization_code';
+  formData.append('code', code)
+  formData.append('client_id', client_id)
+  formData.append('client_secret', client_secret)
+  formData.append('redirect_uri', redirect_uri)
+  formData.append('grant_type', grant_type)
+  await fetch('https://api.gyazo.com/oauth/token', {
+    method: 'POST',
+    body: formData
+  }).then( async (response) => {
+    if (response.status === 200) {
+      const res = await response.json()
+      if (res) {
+        cache = res['access_token']
+      }
+      
+    }
+    
+  })
+  return cache
+}
