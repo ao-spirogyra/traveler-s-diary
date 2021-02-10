@@ -63,9 +63,7 @@ export const getAccessToken = async (query: string): Promise<String> => {
       if (res) {
         cache = res['access_token']
       }
-      
     }
-    
   })
   return cache
 }
