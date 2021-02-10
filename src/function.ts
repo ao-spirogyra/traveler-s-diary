@@ -47,7 +47,7 @@ export const getAccessToken = async (query: string): Promise<String> => {
   const code = query
   const client_id = 'f25d2754cabdca35725e0bc8611f5d609fbbf334198c68476c6edda718ec6e12';
   const client_secret: string = fs.readFileSync('client_secret', 'utf-8');
-  const redirect_uri = 'http://localhost:3000/token';
+  const redirect_uri = 'https://dry-thicket-62282.herokuapp.com/token';
   const grant_type = 'authorization_code';
   formData.append('code', code)
   formData.append('client_id', client_id)
