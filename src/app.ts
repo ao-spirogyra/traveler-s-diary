@@ -23,7 +23,7 @@ app.get('/token', async (req, res) => {
 
 app.get('/secret', (req, res) => {
   if (req.headers.origin = 'chrome-extension://dcdnegmkmmekdenamheodldpfopcbgnc') {
-    res.json({aaa: process.env.DIARY_CLIENT_SECRET})
+    res.json({clientSecret: process.env.DIARY_CLIENT_SECRET})
   }
 })
 
