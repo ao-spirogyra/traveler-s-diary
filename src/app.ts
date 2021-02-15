@@ -33,7 +33,7 @@ app.post('/puppeteer', async (req, res) => {
     })
   }
   try {
-    await takeSnapshots(req.query.url, req.body.accessToken)
+    takeSnapshots(req.query.url, req.body.accessToken)
   } catch (error) {
     res.status(400).json({ error: error.toString() })
   }
