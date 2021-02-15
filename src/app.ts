@@ -20,9 +20,14 @@ app.get('/secret', (req, res) => {
   }
 })
 
-app.post('/puppeteer', (req, res) => {
+app.post('/puppeteer', async (req, res) => {
   res.send('Hello puppeteer!')
-  takeSnapshots(req.query.url, req.body.accessToken)
+  try {
+    await takeSnapshots(req.query.url, req.body.accessToken)
+  } catch (error) {
+    res.status(400).json({ error: error.toString() })
+  }
+  
 })
 
 app.listen(process.env.PORT || 5000, () => {
