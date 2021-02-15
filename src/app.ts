@@ -20,7 +20,7 @@ app.get('/secret', (req, res) => {
   }
 })
 
-app.post('/puppeteer', async (req, res) => {
+app.post('/puppeteer', (req, res) => {
   const { url, accessToken } = req.body
   if (!url) {
     return res.status(400).json({
