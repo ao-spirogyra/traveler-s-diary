@@ -18,8 +18,6 @@ export const takeSnapshots = async (url,accessToken) => {
   } catch {
     return
   }
-  
-
 
   const formData = new FormData();
   formData.append('access_token', accessToken);
@@ -39,31 +37,4 @@ export const takeSnapshots = async (url,accessToken) => {
   },(e) => {
     console.log('Fetch error'+ e);
   });
-}
-
-let cache: string
-export const getAccessToken = async (query: string): Promise<String> => {
-  const formData = new FormData();
-  const code = query
-  const client_id = 'f25d2754cabdca35725e0bc8611f5d609fbbf334198c68476c6edda718ec6e12';
-  const client_secret = process.env.DIARY_CLIENT_SECRET;
-  const redirect_uri = 'https://dry-thicket-62282.herokuapp.com/token';
-  const grant_type = 'authorization_code';
-  formData.append('code', code)
-  formData.append('client_id', client_id)
-  formData.append('client_secret', client_secret)
-  formData.append('redirect_uri', redirect_uri)
-  formData.append('grant_type', grant_type)
-  await fetch('https://api.gyazo.com/oauth/token', {
-    method: 'POST',
-    body: formData
-  }).then( async (response) => {
-    if (response.status === 200) {
-      const res = await response.json()
-      if (res) {
-        cache = res['access_token']
-      }
-    }
-  })
-  return cache
 }

@@ -1,6 +1,5 @@
 import { takeSnapshots } from './function'
 import cors from 'cors'
-import { getAccessToken } from './function'
 import bodyParser from 'body-parser'
 
 const express = require('express')
@@ -13,12 +12,6 @@ app.use(cors())
 app.get('/', (req, res) => {
   req 
   res.send('Hello World!')
-})
-
-app.get('/token', async (req, res) => {
-  req
-  const accessToken = await getAccessToken(req.query.code)
-  res.send(accessToken)
 })
 
 app.get('/secret', (req, res) => {
