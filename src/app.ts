@@ -21,7 +21,17 @@ app.get('/secret', (req, res) => {
 })
 
 app.post('/puppeteer', async (req, res) => {
-  res.send('Hello puppeteer!')
+  if (!req.query.url) {
+    return res.status(400).json({
+      status: "400",
+      message: "invalid request parameters"
+    })
+  } else if (!req.body.accessToken) {
+    return res.status(401).json({
+      status: "401",
+      message: "you must login to gyazo in advance"
+    })
+  }
   try {
     await takeSnapshots(req.query.url, req.body.accessToken)
   } catch (error) {
