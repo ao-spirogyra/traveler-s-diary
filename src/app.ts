@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 app.get('/secret', (req, res) => {
   if (req.headers.origin = 'chrome-extension://kjbmkglohpkfhmdmalpiimojcklgpibp') {
-    res.json({clientSecret: process.env.DIARY_CLIENT_SECRET})
+    res.status(200).json({clientSecret: process.env.DIARY_CLIENT_SECRET})
   }
 })
 
@@ -35,7 +35,7 @@ app.post('/puppeteer', async (req, res) => {
   }
   try {
     await takeSnapshots(url, accessToken)
-    res.send('successfully uploaded')
+    res.status(200).send('successfully uploaded')
   } catch (error) {
     res.status(400).json({ error: error.toString() })
   }
