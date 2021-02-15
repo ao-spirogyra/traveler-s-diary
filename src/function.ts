@@ -15,8 +15,8 @@ export const takeSnapshots = async (url,accessToken) => {
     await page.goto(url);
     await page.screenshot({path: 'puppeteer/tmp.png', fullPage:true});
     await browser.close();
-  } catch {
-    throw "puppeteer failed for some reason"
+  } catch (error) {
+    throw new Error(error)
   }
 
   const formData = new FormData();
