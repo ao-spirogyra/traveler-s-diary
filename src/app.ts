@@ -20,7 +20,7 @@ app.get('/secret', (req, res) => {
   }
 })
 
-app.post('/puppeteer', (req, res) => {
+app.post('/puppeteer', async (req, res) => {
   const { url, accessToken } = req.body
   if (!url) {
     return res.status(400).json({
@@ -34,7 +34,8 @@ app.post('/puppeteer', (req, res) => {
     })
   }
   try {
-    takeSnapshots(url, accessToken)
+    await takeSnapshots(url, accessToken)
+    res.send('successfully uploaded')
   } catch (error) {
     res.status(400).json({ error: error.toString() })
   }
