@@ -16,7 +16,9 @@ app.get('/', (req, res) => {
 
 app.get('/secret', (req, res) => {
   if (req.headers.origin = 'chrome-extension://kjbmkglohpkfhmdmalpiimojcklgpibp') {
-    res.status(200).json({clientSecret: process.env.DIARY_CLIENT_SECRET})
+    res.status(200).json({
+      clientSecret: process.env.DIARY_CLIENT_SECRET
+    })
   }
 })
 
@@ -24,12 +26,10 @@ app.post('/puppeteer', async (req, res) => {
   const { url, accessToken } = req.body
   if (!url) {
     return res.status(422).json({
-      status: "400",
       message: "invalid request parameters"
     })
   } else if (!accessToken) {
     return res.status(401).json({
-      status: "401",
       message: "you must login to gyazo in advance"
     })
   }
@@ -37,7 +37,9 @@ app.post('/puppeteer', async (req, res) => {
     await takeSnapshots(url, accessToken)
     res.status(200).send('successfully uploaded')
   } catch (error) {
-    res.status(400).json({ error: error.toString() })
+    res.status(400).json({
+      message: error.toString()
+    })
   }
   
 })
