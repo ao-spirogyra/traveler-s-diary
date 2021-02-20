@@ -45,3 +45,7 @@ app.post('/puppeteer', async (req, res) => {
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+process.on('uncaughtException', err => {
+  console.log(`Uncaught Exception: ${err.message}`)
+})
