@@ -23,7 +23,7 @@ app.get('/secret', (req, res) => {
 app.post('/puppeteer', async (req, res) => {
   const { url, accessToken } = req.body
   if (!url) {
-    return res.status(400).json({
+    return res.status(422).json({
       status: "400",
       message: "invalid request parameters"
     })
