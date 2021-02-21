@@ -24,6 +24,7 @@ app.get('/secret', (req, res) => {
 
 app.post('/puppeteer', async (req, res) => {
   const { url, accessToken } = req.body
+  res.set('Access-Control-Allow-Origin', 'chrome-extension://kjbmkglohpkfhmdmalpiimojcklgpibp')
   if (!url) {
     return res.status(422).json({
       message: "invalid request parameters"
