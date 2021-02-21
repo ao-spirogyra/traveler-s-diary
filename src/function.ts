@@ -27,7 +27,7 @@ export const takeSnapshots = async (url,accessToken) => {
   const formData = new FormData();
   formData.append('access_token', accessToken);
   formData.append('referer_url', url);
-  formData.append('desc', '#extended-browser-history');
+  formData.append('desc', '#traveler-s-diary');
 
   const imagedata = fs.createReadStream('puppeteer/tmp.png');
   formData.append('imagedata', imagedata);

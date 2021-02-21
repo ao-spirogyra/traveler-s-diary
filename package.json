@@ -1,5 +1,5 @@
 {
-  "name": "extended-browser-history",
+  "name": "traveler-s-diary",
   "version": "1.0.0",
   "engines": {
     "node": "15.x",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ao-spirogyra/extended-browser-history.git"
+    "url": "git+https://github.com/ao-spirogyra/traveler-s-diary"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ao-spirogyra/extended-browser-history/issues"
+    "url": "https://github.com/ao-spirogyra/traveler-s-diary"
   },
-  "homepage": "https://github.com/ao-spirogyra/extended-browser-history#readme",
+  "homepage": "https://github.com/ao-spirogyra/traveler-s-diary#readme",
   "devDependencies": {
     "@types/express": "^4.17.9",
     "@types/node": "^14.14.13",
