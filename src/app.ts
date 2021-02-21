@@ -35,7 +35,9 @@ app.post('/puppeteer', async (req, res) => {
   }
   try {
     await takeSnapshots(url, accessToken)
-    res.status(200).send('successfully uploaded')
+    res.status(200).json({
+      message: 'successfully uploaded'}
+      )
   } catch (error) {
     res.status(400).json({
       message: error.toString()
