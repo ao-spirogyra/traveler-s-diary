@@ -37,9 +37,9 @@ export const takeSnapshots = async (url,accessToken) => {
     body: formData
   }).then((response) => {
     if (response.status !== 200) {
-      console.log('there was a problem. Status Code: ' + response.status)
+      throw new Error('there was a problem. Status Code: ' + response.status)
     }
   },(e) => {
-    console.log('Fetch error'+ e);
+    throw new Error('Fetch error'+ e);
   });
 }
